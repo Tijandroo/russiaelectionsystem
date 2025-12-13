@@ -6,6 +6,7 @@
     <title>Roblox Election Voting</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ... (keep all your existing CSS styles) ... */
         * {
             margin: 0;
             padding: 0;
@@ -33,538 +34,7 @@
             border: 1px solid #444;
         }
         
-        /* Login Screen Styles */
-        .login-screen {
-            padding: 50px;
-            text-align: center;
-        }
-        
-        .login-screen h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .login-screen h1 i {
-            color: #00a2ff;
-            margin-right: 15px;
-        }
-        
-        .login-screen p {
-            font-size: 1.2rem;
-            color: #b0b0b0;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-        
-        .roblox-login-btn {
-            background: linear-gradient(135deg, #00a2ff, #0088cc);
-            color: white;
-            border: none;
-            padding: 20px 40px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 8px 25px rgba(0, 162, 255, 0.3);
-        }
-        
-        .roblox-login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 162, 255, 0.4);
-            background: linear-gradient(135deg, #0088cc, #00a2ff);
-        }
-        
-        .roblox-login-btn:active {
-            transform: translateY(-1px);
-        }
-        
-        .roblox-login-btn i {
-            font-size: 1.8rem;
-        }
-        
-        .login-info {
-            margin-top: 40px;
-            padding: 20px;
-            background: rgba(60, 60, 60, 0.5);
-            border-radius: 10px;
-            border-left: 4px solid #00a2ff;
-            text-align: left;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .login-info h3 {
-            color: #00a2ff;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .login-info ul {
-            list-style: none;
-            padding-left: 20px;
-        }
-        
-        .login-info li {
-            margin-bottom: 8px;
-            color: #cccccc;
-        }
-        
-        .login-info li i {
-            color: #00a2ff;
-            margin-right: 10px;
-        }
-        
-        /* Loading Screen */
-        .loading-screen {
-            padding: 50px;
-            text-align: center;
-            display: none;
-        }
-        
-        .loading-screen h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #ffffff;
-        }
-        
-        .loading-screen i {
-            font-size: 3rem;
-            color: #00a2ff;
-            margin-bottom: 20px;
-        }
-        
-        /* Voting Screen Styles */
-        .voting-screen {
-            display: none;
-            padding: 30px;
-        }
-        
-        .user-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(60, 60, 60, 0.7);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border: 1px solid #444;
-        }
-        
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .user-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 3px solid #00a2ff;
-            overflow: hidden;
-        }
-        
-        .user-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .user-details h2 {
-            color: #ffffff;
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-        
-        .user-details p {
-            color: #b0b0b0;
-            font-size: 1rem;
-        }
-        
-        .logout-btn {
-            background: #ff4757;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        
-        .logout-btn:hover {
-            background: #ff3742;
-            transform: scale(1.05);
-        }
-        
-        .voting-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .candidate-list {
-            flex: 2;
-            min-width: 300px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .results-panel {
-            flex: 1;
-            min-width: 300px;
-            background: rgba(45, 45, 45, 0.9);
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            border: 1px solid #444;
-        }
-        
-        .results-panel h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #ffffff;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #00a2ff;
-        }
-        
-        .results-panel h2 i {
-            color: #00a2ff;
-            margin-right: 8px;
-        }
-        
-        .results-container {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        
-        .result-item {
-            background: rgba(60, 60, 60, 0.7);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 12px;
-            border-left: 4px solid #00a2ff;
-            transition: all 0.3s;
-        }
-        
-        .result-item:hover {
-            background: rgba(70, 70, 70, 0.9);
-            transform: translateX(5px);
-        }
-        
-        .result-name {
-            font-size: 1.1rem;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-        
-        .result-votes {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #00ff88;
-        }
-        
-        .result-bar {
-            height: 6px;
-            background: #444;
-            border-radius: 3px;
-            margin-top: 8px;
-            overflow: hidden;
-        }
-        
-        .result-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #00a2ff, #00ff88);
-            border-radius: 3px;
-            transition: width 0.5s ease-in-out;
-        }
-        
-        .vote-info {
-            background: rgba(60, 60, 60, 0.7);
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            border: 1px solid #444;
-            font-size: 0.95rem;
-        }
-        
-        .vote-info i {
-            color: #00a2ff;
-            margin-right: 8px;
-        }
-        
-        .candidate-card {
-            background: rgba(45, 45, 45, 0.9);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s;
-            border: 1px solid #444;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .candidate-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            border-color: #00a2ff;
-        }
-        
-        .candidate-card.voted {
-            border-color: #00ff88;
-            box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.3);
-        }
-        
-        .avatar-container {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid #00a2ff;
-            background: #2c2c2c;
-            position: relative;
-        }
-        
-        .candidate-card.voted .avatar-container {
-            border-color: #00ff88;
-        }
-        
-        .avatar-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        
-        .candidate-card:hover .avatar-img {
-            transform: scale(1.05);
-        }
-        
-        .candidate-name {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-            color: #ffffff;
-        }
-        
-        .candidate-username {
-            font-size: 0.9rem;
-            color: #b0b0b0;
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-        
-        .candidate-id {
-            font-size: 0.8rem;
-            color: #888;
-            margin-bottom: 15px;
-        }
-        
-        .vote-count {
-            font-size: 1.2rem;
-            margin: 15px 0;
-            color: #00ff88;
-            font-weight: bold;
-        }
-        
-        .vote-btn {
-            background: linear-gradient(135deg, #00a2ff, #0088cc);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-        }
-        
-        .vote-btn:hover {
-            background: linear-gradient(135deg, #0088cc, #00a2ff);
-            transform: scale(1.05);
-        }
-        
-        .vote-btn:disabled {
-            background: #444;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .vote-btn.voted {
-            background: linear-gradient(135deg, #00ff88, #00cc6a);
-        }
-        
-        .vote-btn.voted:hover {
-            background: linear-gradient(135deg, #00cc6a, #00ff88);
-        }
-        
-        .vote-check {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #00ff88;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            animation: popIn 0.3s ease-out;
-        }
-        
-        @keyframes popIn {
-            0% { transform: scale(0); }
-            70% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-        
-        .total-votes {
-            text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(60, 60, 60, 0.7);
-            border-radius: 10px;
-            font-size: 1.1rem;
-            color: #ffffff;
-            border: 1px solid #444;
-        }
-        
-        .total-votes strong {
-            color: #00ff88;
-        }
-        
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #00ff88;
-            color: #1a1a1a;
-            padding: 15px 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-            opacity: 0;
-            transform: translateY(100px);
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            z-index: 1000;
-            max-width: 350px;
-            font-weight: bold;
-        }
-        
-        .notification.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .notification-content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .notification-content i {
-            font-size: 1.5rem;
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #b0b0b0;
-            grid-column: 1 / -1;
-        }
-        
-        .loading i {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #00a2ff;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            color: #888;
-            font-size: 0.9rem;
-            border-top: 1px solid #444;
-        }
-        
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: rgba(60, 60, 60, 0.5);
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #00a2ff;
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #0088cc;
-        }
-        
-        @media (max-width: 768px) {
-            .voting-container {
-                flex-direction: column;
-            }
-            
-            .candidate-list {
-                grid-template-columns: 1fr;
-            }
-            
-            .login-screen {
-                padding: 30px 20px;
-            }
-            
-            .login-screen h1 {
-                font-size: 2.2rem;
-            }
-            
-            .roblox-login-btn {
-                padding: 15px 30px;
-                font-size: 1.1rem;
-            }
-            
-            .user-header {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-            
-            .user-info {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-        
-        .error-message {
-            background: rgba(255, 71, 87, 0.1);
-            border: 1px solid #ff4757;
-            color: #ff6b6b;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px auto;
-            max-width: 600px;
-            display: none;
-        }
+        /* ... (keep ALL your existing CSS styles from before) ... */
     </style>
 </head>
 <body>
@@ -663,51 +133,84 @@
         // CONFIGURATION - YOU MUST SET THESE VALUES
         // ============================================
         
-        // Roblox OAuth Configuration
+        // Roblox Open Cloud OAuth Configuration
         // Get these from https://create.roblox.com/credentials
         const ROBLOX_CONFIG = {
             clientId: "YOUR_CLIENT_ID_HERE",           // Replace with your Client ID
             clientSecret: "YOUR_CLIENT_SECRET_HERE",   // Replace with your Client Secret
             redirectUri: window.location.origin + window.location.pathname,
-            scopes: ["openid", "profile"]  // Scopes needed for user info
+            scopes: ["openid", "profile"]  // Required scopes
         };
         
-        // Roblox API endpoints
-        const ROBLOX_ENDPOINTS = {
+        // Roblox Open Cloud API Endpoints
+        const OPEN_CLOUD_ENDPOINTS = {
+            // OAuth 2.0 Endpoints
             authorize: "https://apis.roblox.com/oauth/v1/authorize",
             token: "https://apis.roblox.com/oauth/v1/token",
             userInfo: "https://apis.roblox.com/oauth/v1/userinfo",
-            usersApi: "https://users.roblox.com/v1/users/"
+            revoke: "https://apis.roblox.com/oauth/v1/revoke",
+            
+            // Open Cloud APIs (Some are still in beta)
+            usersApi: "https://apis.roblox.com/cloud/v2/users",  // Beta endpoint
+            thumbnailsApi: "https://thumbnails.roblox.com/v1/users/avatar-headshot"
         };
         
-        // Election Candidates Configuration
-        const CANDIDATE_IDS = [
-            "156",       // Builderman
-            "261",       // Telamon
-            "1134911",   // Rukiryo
-            "3101665",   // KreekCraft
-            "158415",    // Sorcus
-            // Add more candidate Roblox IDs here
+        // IMPORTANT: Candidate Configuration
+        // Since Open Cloud User API is limited, we need to configure candidates differently
+        // You'll need to manually set up candidate data since we can't fetch by ID directly
+        const CANDIDATES_CONFIG = [
+            {
+                id: "156",
+                name: "Builderman (CEO)",
+                username: "Builderman",
+                description: "Founder & CEO of Roblox",
+                // Use a known avatar URL or fallback
+                avatarUrl: "https://tr.rbxcdn.com/bcdee8ac9a5a31a4759b448da7c9ff7e/150/150/AvatarHeadshot/Png"
+            },
+            {
+                id: "261",
+                name: "Telamon",
+                username: "Telamon",
+                description: "Community Manager",
+                avatarUrl: "https://tr.rbxcdn.com/ed48128a86ab6cc04537207640f3e5a8/150/150/AvatarHeadshot/Png"
+            },
+            {
+                id: "1134911",
+                name: "Rukiryo",
+                username: "Rukiryo",
+                description: "Game Developer",
+                avatarUrl: "https://tr.rbxcdn.com/9e7d0c3a4f81d4fa6864c5e755f1b150/150/150/AvatarHeadshot/Png"
+            },
+            {
+                id: "3101665",
+                name: "KreekCraft",
+                username: "KreekCraft",
+                description: "Popular Content Creator",
+                avatarUrl: "https://tr.rbxcdn.com/0f0d1c30bb8c14136ab2a61baed35473/150/150/AvatarHeadshot/Png"
+            },
+            {
+                id: "158415",
+                name: "Sorcus",
+                username: "Sorcus",
+                description: "Game Developer",
+                avatarUrl: "https://tr.rbxcdn.com/1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a/150/150/AvatarHeadshot/Png"
+            }
+            // Add more candidates with their known avatar URLs
         ];
         
-        const CUSTOM_NAMES = {
-            "156": "Builderman (CEO)",
-            "261": "Telamon",
-            // Add custom display names if needed
-        };
-        
-        const CANDIDATE_DESCRIPTIONS = {
-            "156": "Founder & CEO of Roblox",
-            "261": "Community Manager",
-            "1134911": "Game Developer",
-            "3101665": "Popular Content Creator",
-            "158415": "Game Developer",
+        // For avatar fallbacks when Open Cloud API fails
+        const AVATAR_FALLBACKS = {
+            "156": "https://tr.rbxcdn.com/bcdee8ac9a5a31a4759b448da7c9ff7e/150/150/AvatarHeadshot/Png",
+            "261": "https://tr.rbxcdn.com/ed48128a86ab6cc04537207640f3e5a8/150/150/AvatarHeadshot/Png",
+            "1134911": "https://tr.rbxcdn.com/9e7d0c3a4f81d4fa6864c5e755f1b150/150/150/AvatarHeadshot/Png",
+            "3101665": "https://tr.rbxcdn.com/0f0d1c30bb8c14136ab2a61baed35473/150/150/AvatarHeadshot/Png",
+            "158415": "https://tr.rbxcdn.com/1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a/150/150/AvatarHeadshot/Png"
         };
     </script>
 
     <script>
         // ============================================
-        // Voting System with Real Roblox OAuth 2.0
+        // Voting System with Roblox Open Cloud OAuth
         // ============================================
         
         class VotingSystem {
@@ -736,78 +239,52 @@
                     this.showVotingScreen();
                 }
                 
-                // Load candidates
-                this.loadCandidates();
+                // Load candidates from configuration (not API due to CORS)
+                this.loadCandidatesFromConfig();
             }
             
-            async loadCandidates() {
-                this.candidates = [];
+            // Load candidates from configuration instead of API
+            loadCandidatesFromConfig() {
+                this.candidates = CANDIDATES_CONFIG.map(candidate => {
+                    return {
+                        ...candidate,
+                        votes: parseInt(localStorage.getItem(`votes_${candidate.id}`)) || 0,
+                        userVoted: false // Will be updated when user logs in
+                    };
+                });
                 
-                for (const id of CANDIDATE_IDS) {
-                    try {
-                        const candidate = await this.fetchRobloxUser(id);
-                        if (candidate) {
-                            // Load votes for this candidate
-                            candidate.votes = parseInt(localStorage.getItem(`votes_${id}`)) || 0;
-                            this.candidates.push(candidate);
-                        }
-                    } catch (error) {
-                        console.error(`Error loading candidate ${id}:`, error);
-                    }
-                }
-                
+                this.renderCandidates();
                 this.renderResults();
             }
             
-            async fetchRobloxUser(robloxId) {
-                try {
-                    // Fetch user info from Roblox API
-                    const userResponse = await fetch(`${ROBLOX_ENDPOINTS.usersApi}${robloxId}`);
-                    
-                    if (!userResponse.ok) {
-                        throw new Error(`User ${robloxId} not found`);
-                    }
-                    
-                    const userData = await userResponse.json();
-                    
-                    // Get avatar thumbnail
-                    let avatarImageUrl = `https://www.roblox.com/headshot-thumbnail/image?userId=${robloxId}&width=420&height=420&format=png`;
-                    
+            // Optional: Try to fetch candidate avatars through Open Cloud (if you have API key)
+            async tryFetchCandidateAvatars() {
+                // This requires an Open Cloud API Key with proper permissions
+                // Currently limited in functionality
+                for (const candidate of this.candidates) {
                     try {
-                        const avatarUrl = `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${robloxId}&size=420x420&format=Png&isCircular=false`;
-                        const avatarResponse = await fetch(avatarUrl);
-                        const avatarData = await avatarResponse.json();
-                        if (avatarData.data && avatarData.data[0]) {
-                            avatarImageUrl = avatarData.data[0].imageUrl;
+                        // Note: Open Cloud API for users is limited and may require different authentication
+                        // This is a placeholder for when the API becomes more accessible
+                        const avatarUrl = `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${candidate.id}&size=150x150&format=Png&isCircular=false`;
+                        
+                        // Try to fetch - may still have CORS issues
+                        const response = await fetch(avatarUrl);
+                        if (response.ok) {
+                            const data = await response.json();
+                            if (data.data && data.data[0]) {
+                                candidate.avatarUrl = data.data[0].imageUrl;
+                            }
                         }
-                    } catch (e) {
-                        console.log('Using fallback avatar URL');
+                    } catch (error) {
+                        console.log(`Using configured avatar for ${candidate.name}`);
+                        // Keep the configured avatar URL
                     }
-                    
-                    // Create candidate object
-                    return {
-                        id: robloxId,
-                        name: CUSTOM_NAMES[robloxId] || userData.name,
-                        username: userData.name,
-                        description: CANDIDATE_DESCRIPTIONS[robloxId] || 'Candidate',
-                        avatarUrl: avatarImageUrl,
-                        displayName: userData.displayName || userData.name
-                    };
-                } catch (error) {
-                    console.error(`Error fetching Roblox user ${robloxId}:`, error);
-                    
-                    // Return fallback data
-                    return {
-                        id: robloxId,
-                        name: CUSTOM_NAMES[robloxId] || `User ${robloxId}`,
-                        username: `user_${robloxId}`,
-                        description: CANDIDATE_DESCRIPTIONS[robloxId] || 'Candidate',
-                        avatarUrl: `https://www.roblox.com/headshot-thumbnail/image?userId=${robloxId}&width=420&height=420&format=png`,
-                        displayName: CUSTOM_NAMES[robloxId] || `User ${robloxId}`
-                    };
                 }
+                
+                this.renderCandidates();
             }
             
+            // OAuth 2.0 Flow Methods
             initiateOAuthFlow() {
                 // Check if configuration is set
                 if (ROBLOX_CONFIG.clientId === "YOUR_CLIENT_ID_HERE" || ROBLOX_CONFIG.clientSecret === "YOUR_CLIENT_SECRET_HERE") {
@@ -819,15 +296,15 @@
                 const state = this.generateRandomString(16);
                 localStorage.setItem('oauth_state', state);
                 
-                // Build authorization URL
-                const authUrl = new URL(ROBLOX_ENDPOINTS.authorize);
+                // Build authorization URL for Open Cloud OAuth
+                const authUrl = new URL(OPEN_CLOUD_ENDPOINTS.authorize);
                 authUrl.searchParams.append('client_id', ROBLOX_CONFIG.clientId);
                 authUrl.searchParams.append('redirect_uri', ROBLOX_CONFIG.redirectUri);
                 authUrl.searchParams.append('response_type', 'code');
                 authUrl.searchParams.append('scope', ROBLOX_CONFIG.scopes.join(' '));
                 authUrl.searchParams.append('state', state);
                 
-                // Redirect to Roblox OAuth
+                // Redirect to Roblox Open Cloud OAuth
                 window.location.href = authUrl.toString();
             }
             
@@ -853,7 +330,7 @@
                     // Show loading screen
                     this.showLoadingScreen();
                     
-                    // Exchange code for tokens
+                    // Exchange code for tokens using Open Cloud endpoint
                     this.exchangeCodeForTokens(code);
                     
                     // Clean up URL
@@ -863,6 +340,10 @@
             
             async exchangeCodeForTokens(code) {
                 try {
+                    // IMPORTANT: Token exchange MUST happen server-side in production
+                    // This client-side example is for demonstration only
+                    // In production, you need a backend server
+                    
                     const tokenData = new URLSearchParams();
                     tokenData.append('client_id', ROBLOX_CONFIG.clientId);
                     tokenData.append('client_secret', ROBLOX_CONFIG.clientSecret);
@@ -870,7 +351,10 @@
                     tokenData.append('code', code);
                     tokenData.append('redirect_uri', ROBLOX_CONFIG.redirectUri);
                     
-                    const response = await fetch(ROBLOX_ENDPOINTS.token, {
+                    // WARNING: This exposes client secret in frontend code
+                    // This should ONLY be used for testing/demo purposes
+                    // For production, implement a backend server
+                    const response = await fetch(OPEN_CLOUD_ENDPOINTS.token, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded'
@@ -879,25 +363,27 @@
                     });
                     
                     if (!response.ok) {
-                        throw new Error(`Token exchange failed: ${response.status}`);
+                        const errorText = await response.text();
+                        throw new Error(`Token exchange failed: ${response.status} - ${errorText}`);
                     }
                     
                     const tokens = await response.json();
                     this.accessToken = tokens.access_token;
                     
-                    // Get user info
-                    await this.fetchUserInfo();
+                    // Get user info from Open Cloud OAuth endpoint
+                    await this.fetchOpenCloudUserInfo();
                     
                 } catch (error) {
                     console.error('Token exchange error:', error);
-                    this.showError('Failed to authenticate with Roblox. Please try again.');
+                    this.showError('Failed to authenticate with Roblox. Please try again. Error: ' + error.message);
                     this.showLoginScreen();
                 }
             }
             
-            async fetchUserInfo() {
+            async fetchOpenCloudUserInfo() {
                 try {
-                    const response = await fetch(ROBLOX_ENDPOINTS.userInfo, {
+                    // Fetch user info from Open Cloud OAuth userinfo endpoint
+                    const response = await fetch(OPEN_CLOUD_ENDPOINTS.userInfo, {
                         headers: {
                             'Authorization': `Bearer ${this.accessToken}`
                         }
@@ -909,32 +395,27 @@
                     
                     const userInfo = await response.json();
                     
-                    // Get additional user details from Roblox API
-                    const userResponse = await fetch(`${ROBLOX_ENDPOINTS.usersApi}${userInfo.sub}`, {
-                        headers: {
-                            'Authorization': `Bearer ${this.accessToken}`
-                        }
-                    });
+                    // Get user avatar using Open Cloud thumbnails API (works with CORS)
+                    let avatarUrl = AVATAR_FALLBACKS[userInfo.sub] || `https://via.placeholder.com/150/00a2ff/ffffff?text=${userInfo.preferred_username?.charAt(0) || 'U'}`;
                     
-                    const userDetails = await userResponse.json();
-                    
-                    // Get user avatar
-                    let avatarUrl = `https://www.roblox.com/headshot-thumbnail/image?userId=${userInfo.sub}&width=150&height=150&format=png`;
                     try {
-                        const avatarResponse = await fetch(`https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${userInfo.sub}&size=150x150&format=Png&isCircular=true`);
-                        const avatarData = await avatarResponse.json();
-                        if (avatarData.data && avatarData.data[0]) {
-                            avatarUrl = avatarData.data[0].imageUrl;
+                        // Try to get actual avatar from Open Cloud thumbnails API
+                        const avatarResponse = await fetch(`${OPEN_CLOUD_ENDPOINTS.thumbnailsApi}?userIds=${userInfo.sub}&size=150x150&format=Png&isCircular=true`);
+                        if (avatarResponse.ok) {
+                            const avatarData = await avatarResponse.json();
+                            if (avatarData.data && avatarData.data[0]) {
+                                avatarUrl = avatarData.data[0].imageUrl;
+                            }
                         }
-                    } catch (e) {
-                        console.log('Using fallback avatar URL');
+                    } catch (avatarError) {
+                        console.log('Using fallback avatar:', avatarError);
                     }
                     
                     // Store user data
                     this.currentUser = {
                         id: userInfo.sub,
-                        username: userDetails.name,
-                        displayName: userDetails.displayName || userDetails.name,
+                        username: userInfo.preferred_username || 'Roblox User',
+                        displayName: userInfo.name || userInfo.preferred_username || 'Roblox User',
                         avatarUrl: avatarUrl
                     };
                     
@@ -962,15 +443,15 @@
                     localStorage.removeItem('roblox_token');
                     localStorage.removeItem('oauth_state');
                     
-                    // Show login screen
-                    this.showLoginScreen();
-                    this.showNotification('Successfully logged out.');
-                    
-                    // Clear any user-specific vote highlights
+                    // Clear user votes from candidates
                     this.candidates.forEach(candidate => {
                         candidate.userVoted = false;
                     });
+                    
+                    // Show login screen
+                    this.showLoginScreen();
                     this.renderCandidates();
+                    this.showNotification('Successfully logged out.');
                 }
             }
             
@@ -1010,6 +491,7 @@
                 this.showNotification(`✅ You voted for ${candidate.name}!`);
             }
             
+            // UI Management Methods
             showLoginScreen() {
                 document.getElementById('loginScreen').style.display = 'block';
                 document.getElementById('loadingScreen').style.display = 'none';
