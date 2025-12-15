@@ -1,74 +1,77 @@
-// server.js - Node.js backend for OAuth (Required for production)
+// server.js - Backend for Roblox OAuth
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
-const path = require('path');
+const cors = require('cors');
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Serve static files from current directory
-app.use(express.static(__dirname));
+// Middleware
+app.use(cors());
+app.use(express.json());
 
 // Your Roblox OAuth credentials from https://create.roblox.com/credentials
 const ROBLOX_CONFIG = {
-    clientId: process.env.ROBLOX_CLIENT_ID || "3289521937941844029",
-    clientSecret: process.env.ROBLOX_CLIENT_SECRET || "78ISFYmQHUiIRvzXpSG6KC8uUlPDFYq0_3zCRiXclMSguR_5OnGAKSToft0Wpjt_",
-    redirectUri: process.env.ROBLOX_REDIRECT_URI || "http://localhost:3000/oauth/callback"
+    clientId: process.env.ROBLOX_CLIENT_ID,
+    clientSecret: process.env.ROBLOX_CLIENT_SECRET,
+    redirectUri: process.env.REDIRECT_URI || 'http://localhost:3000/callback'
 };
 
-// OAuth callback endpoint (for production - handles token exchange securely)
-app.get('/oauth/callback', async (req, res) => {
+// Step 1: Redirect to Roblox OAuth
+app.get('/auth/roblox', (req, res) => {
+    const { state, redirect_uri } = req.query;
+    
+    const authUrl = new URL('https://apis.roblox.com/oauth/v1/authorize');
+    authUrl.searchParams.append('client_id', ROBLOX_CONFIG.clientId);
+    authUrl.searchParams.append('redirect_uri', redirect_uri || ROBLOX_CONFIG.redirectUri);
+    authUrl.searchParams.append('response_type', 'code');
+    authUrl.searchParams.append('scope', 'openid profile');
+    authUrl.searchParams.append('state', state);
+    
+    res.redirect(authUrl.toString());
+});
+
+// Step 2: Handle callback and exchange code for tokens
+app.post('/auth/token', async (req, res) => {
     try {
-        const { code, state } = req.query;
+        const { code, redirect_uri } = req.body;
         
         if (!code) {
-            return res.status(400).send('Authorization code missing');
+            return res.status(400).json({ error: 'Authorization code required' });
         }
         
-        // Exchange code for tokens
-        const tokenResponse = await axios.post('https://apis.roblox.com/oauth/v1/token', new URLSearchParams({
-            client_id: ROBLOX_CONFIG.clientId,
-            client_secret: ROBLOX_CONFIG.clientSecret,
-            grant_type: 'authorization_code',
-            code: code,
-            redirect_uri: ROBLOX_CONFIG.redirectUri
-        }), {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+        // Exchange code for access token
+        const tokenResponse = await axios.post('https://apis.roblox.com/oauth/v1/token', 
+            new URLSearchParams({
+                client_id: ROBLOX_CONFIG.clientId,
+                client_secret: ROBLOX_CONFIG.clientSecret,
+                grant_type: 'authorization_code',
+                code: code,
+                redirect_uri: redirect_uri || ROBLOX_CONFIG.redirectUri
+            }), {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
             }
+        );
+        
+        res.json({
+            access_token: tokenResponse.data.access_token,
+            token_type: tokenResponse.data.token_type,
+            expires_in: tokenResponse.data.expires_in
         });
-        
-        const { access_token, id_token } = tokenResponse.data;
-        
-        // Get user info
-        const userResponse = await axios.get('https://apis.roblox.com/oauth/v1/userinfo', {
-            headers: {
-                'Authorization': `Bearer ${access_token}`
-            }
-        });
-        
-        const userInfo = userResponse.data;
-        
-        // Redirect back to frontend with user info
-        const redirectUrl = new URL('/index.html', `http://${req.headers.host}`);
-        redirectUrl.searchParams.set('oauth_success', 'true');
-        redirectUrl.searchParams.set('user_id', userInfo.sub);
-        redirectUrl.searchParams.set('username', userInfo.preferred_username);
-        redirectUrl.searchParams.set('access_token', access_token);
-        
-        res.redirect(redirectUrl.toString());
         
     } catch (error) {
-        console.error('OAuth callback error:', error.response?.data || error.message);
-        res.status(500).send('Authentication failed');
+        console.error('Token exchange error:', error.response?.data || error.message);
+        res.status(500).json({ error: 'Failed to exchange authorization code' });
     }
 });
 
-// Serve main HTML file
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
+// Serve static files (your frontend)
+app.use(express.static('public'));
 
+// Start server
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
-    console.log('Make sure to set up your Roblox OAuth app at: https://create.roblox.com/credentials');
+    console.log(`OAuth redirect URI: ${ROBLOX_CONFIG.redirectUri}`);
 });
