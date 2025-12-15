@@ -17,12 +17,15 @@
             background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
             color: #e0e0e0;
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
         }
         
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
             background: rgba(40, 40, 40, 0.95);
             border-radius: 20px;
             overflow: hidden;
@@ -30,42 +33,165 @@
             border: 1px solid #444;
         }
         
-        header {
+        /* Login Screen Styles */
+        .login-screen {
+            padding: 50px;
             text-align: center;
-            padding: 30px 0;
-            background: rgba(45, 45, 45, 0.9);
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            border: 1px solid #444;
         }
         
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        .login-screen h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
             color: #ffffff;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
-        h1 i {
-            color: #7289da;
+        .login-screen h1 i {
+            color: #00a2ff;
+            margin-right: 15px;
+        }
+        
+        .login-screen p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .roblox-login-btn {
+            background: linear-gradient(135deg, #00a2ff, #0088cc);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 8px 25px rgba(0, 162, 255, 0.3);
+        }
+        
+        .roblox-login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 162, 255, 0.4);
+            background: linear-gradient(135deg, #0088cc, #00a2ff);
+        }
+        
+        .roblox-login-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .roblox-login-btn i {
+            font-size: 1.8rem;
+        }
+        
+        .login-info {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(60, 60, 60, 0.5);
+            border-radius: 10px;
+            border-left: 4px solid #00a2ff;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .login-info h3 {
+            color: #00a2ff;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .login-info ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        
+        .login-info li {
+            margin-bottom: 8px;
+            color: #cccccc;
+        }
+        
+        .login-info li i {
+            color: #00a2ff;
             margin-right: 10px;
         }
         
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
+        /* Voting Screen Styles (Hidden by default) */
+        .voting-screen {
+            display: none;
+            padding: 30px;
+        }
+        
+        .user-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(60, 60, 60, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid #444;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .user-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #00a2ff;
+            overflow: hidden;
+        }
+        
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .user-details h2 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .user-details p {
             color: #b0b0b0;
+            font-size: 1rem;
+        }
+        
+        .logout-btn {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background: #ff3742;
+            transform: scale(1.05);
         }
         
         .voting-container {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
-            margin-bottom: 40px;
         }
         
         .candidate-list {
@@ -91,11 +217,11 @@
             margin-bottom: 20px;
             color: #ffffff;
             padding-bottom: 10px;
-            border-bottom: 2px solid #7289da;
+            border-bottom: 2px solid #00a2ff;
         }
         
         .results-panel h2 i {
-            color: #7289da;
+            color: #00a2ff;
             margin-right: 8px;
         }
         
@@ -109,7 +235,7 @@
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 12px;
-            border-left: 4px solid #7289da;
+            border-left: 4px solid #00a2ff;
             transition: all 0.3s;
         }
         
@@ -127,7 +253,7 @@
         .result-votes {
             font-size: 1.3rem;
             font-weight: bold;
-            color: #43b581;
+            color: #00ff88;
         }
         
         .result-bar {
@@ -140,7 +266,7 @@
         
         .result-fill {
             height: 100%;
-            background: linear-gradient(90deg, #7289da, #43b581);
+            background: linear-gradient(90deg, #00a2ff, #00ff88);
             border-radius: 3px;
             transition: width 0.5s ease-in-out;
         }
@@ -155,7 +281,7 @@
         }
         
         .vote-info i {
-            color: #7289da;
+            color: #00a2ff;
             margin-right: 8px;
         }
         
@@ -173,12 +299,12 @@
         .candidate-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            border-color: #7289da;
+            border-color: #00a2ff;
         }
         
         .candidate-card.voted {
-            border-color: #43b581;
-            box-shadow: 0 0 0 2px rgba(67, 181, 129, 0.3);
+            border-color: #00ff88;
+            box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.3);
         }
         
         .avatar-container {
@@ -187,13 +313,13 @@
             margin: 0 auto 15px;
             border-radius: 50%;
             overflow: hidden;
-            border: 4px solid #7289da;
+            border: 4px solid #00a2ff;
             background: #2c2c2c;
             position: relative;
         }
         
         .candidate-card.voted .avatar-container {
-            border-color: #43b581;
+            border-color: #00ff88;
         }
         
         .avatar-img {
@@ -229,12 +355,12 @@
         .vote-count {
             font-size: 1.2rem;
             margin: 15px 0;
-            color: #43b581;
+            color: #00ff88;
             font-weight: bold;
         }
         
         .vote-btn {
-            background: linear-gradient(135deg, #7289da, #5b6eae);
+            background: linear-gradient(135deg, #00a2ff, #0088cc);
             color: white;
             border: none;
             padding: 12px 25px;
@@ -248,7 +374,7 @@
         }
         
         .vote-btn:hover {
-            background: linear-gradient(135deg, #5b6eae, #7289da);
+            background: linear-gradient(135deg, #0088cc, #00a2ff);
             transform: scale(1.05);
         }
         
@@ -259,18 +385,18 @@
         }
         
         .vote-btn.voted {
-            background: linear-gradient(135deg, #43b581, #369268);
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
         }
         
         .vote-btn.voted:hover {
-            background: linear-gradient(135deg, #369268, #43b581);
+            background: linear-gradient(135deg, #00cc6a, #00ff88);
         }
         
         .vote-check {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: #43b581;
+            background: #00ff88;
             color: white;
             width: 30px;
             height: 30px;
@@ -300,14 +426,14 @@
         }
         
         .total-votes strong {
-            color: #43b581;
+            color: #00ff88;
         }
         
         .notification {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #43b581;
+            background: #00ff88;
             color: #1a1a1a;
             padding: 15px 25px;
             border-radius: 10px;
@@ -345,7 +471,7 @@
         .loading i {
             font-size: 2rem;
             margin-bottom: 15px;
-            color: #7289da;
+            color: #00a2ff;
         }
         
         footer {
@@ -368,12 +494,12 @@
         }
         
         ::-webkit-scrollbar-thumb {
-            background: #7289da;
+            background: #00a2ff;
             border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: #5b6eae;
+            background: #0088cc;
         }
         
         @media (max-width: 768px) {
@@ -385,14 +511,28 @@
                 grid-template-columns: 1fr;
             }
             
-            h1 {
-                font-size: 2rem;
+            .login-screen {
+                padding: 30px 20px;
             }
             
-            .notification {
-                left: 20px;
-                right: 20px;
-                max-width: none;
+            .login-screen h1 {
+                font-size: 2.2rem;
+            }
+            
+            .roblox-login-btn {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .user-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .user-info {
+                flex-direction: column;
+                text-align: center;
             }
         }
         
@@ -406,45 +546,123 @@
             max-width: 600px;
             display: none;
         }
+        
+        .demo-login {
+            margin-top: 20px;
+            background: rgba(60, 60, 60, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #444;
+        }
+        
+        .demo-login h4 {
+            color: #00a2ff;
+            margin-bottom: 10px;
+        }
+        
+        .demo-btn {
+            background: #9b59b6;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .demo-btn:hover {
+            background: #8e44ad;
+        }
     </style>
 </head>
 <body>
+    <!-- Login Screen -->
     <div class="container">
-        <header>
-            <h1><i class="fas fa-vote-yea"></i> Roblox Election Voting</h1>
-            <p class="subtitle">Cast your vote for your favorite candidate. You can only vote for one candidate.</p>
-        </header>
-        
-        <div class="voting-container">
-            <div id="candidate-list" class="candidate-list">
-                <div class="loading">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading candidates...</p>
-                </div>
+        <div id="loginScreen" class="login-screen">
+            <h1><i class="fab fa-roblox"></i> Roblox Election Voting</h1>
+            <p>Please sign in with your Roblox account to vote in the election. You can only vote for one candidate, and your vote cannot be changed once submitted.</p>
+            
+            <button id="robloxLoginBtn" class="roblox-login-btn">
+                <i class="fab fa-roblox"></i>
+                Sign in with Roblox OAuth
+            </button>
+            
+            <!-- Demo Login (for testing without real OAuth) -->
+            <div class="demo-login">
+                <h4><i class="fas fa-flask"></i> Demo Mode (Testing Only)</h4>
+                <p>Use demo accounts to test without real OAuth setup:</p>
+                <button class="demo-btn" onclick="votingSystem.demoLogin('demo1')">Demo User 1</button>
+                <button class="demo-btn" onclick="votingSystem.demoLogin('demo2')">Demo User 2</button>
+                <button class="demo-btn" onclick="votingSystem.demoLogin('demo3')">Demo User 3</button>
             </div>
             
-            <div class="results-panel">
-                <h2><i class="fas fa-chart-bar"></i> Current Results</h2>
-                <div id="results-container" class="results-container">
-                    <div class="loading">
-                        <i class="fas fa-spinner fa-spin"></i>
-                        <p>Loading results...</p>
-                    </div>
-                </div>
-                <div id="total-votes-element" class="total-votes">
-                    <strong>0</strong> total votes cast
-                </div>
-                <div class="vote-info">
-                    <p><i class="fas fa-info-circle"></i> Welcome! You can vote for one candidate only. Your vote cannot be changed.</p>
-                </div>
+            <div class="login-info">
+                <h3><i class="fas fa-shield-alt"></i> Secure Authentication</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Uses official Roblox OAuth 2.0</li>
+                    <li><i class="fas fa-check-circle"></i> Your account information is protected</li>
+                    <li><i class="fas fa-check-circle"></i> Only your username and avatar are accessed</li>
+                    <li><i class="fas fa-check-circle"></i> One vote per Roblox account</li>
+                    <li><i class="fas fa-check-circle"></i> Must login before voting</li>
+                </ul>
+            </div>
+            
+            <div id="errorMessage" class="error-message">
+                <h3><i class="fas fa-exclamation-triangle"></i> Error</h3>
+                <p id="errorMessageText"></p>
             </div>
         </div>
         
-        <footer>
-            <p>Roblox Election Voting System | Votes are stored locally in your browser</p>
-        </footer>
+        <!-- Voting Screen (Hidden until login) -->
+        <div id="votingScreen" class="voting-screen">
+            <div class="user-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <img id="loggedInAvatar" src="" alt="User Avatar">
+                    </div>
+                    <div class="user-details">
+                        <h2 id="loggedInUsername">Username</h2>
+                        <p id="loggedInUserId">ID: Loading...</p>
+                    </div>
+                </div>
+                <button id="logoutBtn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+            
+            <div class="voting-container">
+                <div id="candidate-list" class="candidate-list">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading candidates...</p>
+                    </div>
+                </div>
+                
+                <div class="results-panel">
+                    <h2><i class="fas fa-chart-bar"></i> Current Results</h2>
+                    <div id="results-container" class="results-container">
+                        <div class="loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading results...</p>
+                        </div>
+                    </div>
+                    <div id="total-votes-element" class="total-votes">
+                        <strong>0</strong> total votes cast
+                    </div>
+                    <div class="vote-info">
+                        <p><i class="fas fa-info-circle"></i> Welcome! You can vote for one candidate only. Your vote cannot be changed.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <footer>
+                <p>Roblox Election Voting System | Secure OAuth 2.0 Authentication | Votes are stored per account</p>
+            </footer>
+        </div>
     </div>
     
+    <!-- Notification -->
     <div id="notification" class="notification">
         <div class="notification-content">
             <i class="fas fa-check-circle"></i>
@@ -457,279 +675,224 @@
         // CONFIGURATION
         // ============================================
         
-        // Roblox User IDs for candidates
-        // Add or remove IDs here
-        const CANDIDATE_IDS = [
-            "156",       // Builderman
-            "261",       // Telamon
-            "1134911",   // Rukiryo
-            "3101665",   // KreekCraft
-            "158415",    // Sorcus
-            // Add more IDs here:
-            // "1234567",
-        ];
-        
-        // Custom display names (optional)
-        const CUSTOM_NAMES = {
-            "156": "Builderman (CEO)",
-            "261": "Telamon",
-            "1134911": "Rukiryo",
-            "3101665": "KreekCraft",
-            "158415": "Sorcus",
+        // Roblox OAuth Configuration
+        // Get these from https://create.roblox.com/credentials
+        const ROBLOX_CONFIG = {
+            clientId: "3289521937941844029",           // Replace with your Client ID
+            clientSecret: "RBX-78ISFYmQHUiIRvzXpSG6KF-wGVeTJHQ0MUoe3fm2MKGHc0XvYIP4ddXbtsaIU6hs",   // Replace with your Client Secret
+            redirectUri: window.location.origin + window.location.pathname,
+            scopes: ["openid", "profile"]
         };
         
-        // Candidate descriptions
-        const CANDIDATE_DESCRIPTIONS = {
-            "156": "Founder & CEO of Roblox",
-            "261": "Community Manager",
-            "1134911": "Game Developer",
-            "3101665": "Popular Content Creator",
-            "158415": "Game Developer",
-        };
-        
-        // CORS Proxy Configuration
-        // IMPORTANT: Choose ONE of these proxy options:
-        
-        // Option 1: Use a public CORS proxy (for testing only)
-        const USE_PUBLIC_PROXY = false; // Set to true to enable public proxy
-        
-        // Option 2: Use your own backend proxy
-        // Create a simple Node.js/Express server or use a serverless function
-        const BACKEND_PROXY_URL = ""; // Example: "https://your-backend.vercel.app/api/proxy"
-        
-        // Option 3: Use pre-configured fallback data (no API calls)
-        const USE_FALLBACK_DATA = true; // Set to true to skip API calls entirely
-        
-        // Fallback data for when API fails
-        const FALLBACK_CANDIDATES = {
-            "156": {
-                name: "Builderman",
-                displayName: "Builderman (CEO)",
+        // Election Candidates Configuration (Manual setup due to CORS)
+        const CANDIDATES_CONFIG = [
+            {
+                id: "156",
+                name: "Builderman (CEO)",
+                username: "Builderman",
                 description: "Founder & CEO of Roblox",
                 avatarUrl: "https://tr.rbxcdn.com/bcdee8ac9a5a31a4759b448da7c9ff7e/150/150/AvatarHeadshot/Png"
             },
-            "261": {
+            {
+                id: "261",
                 name: "Telamon",
-                displayName: "Telamon",
+                username: "Telamon",
                 description: "Community Manager",
                 avatarUrl: "https://tr.rbxcdn.com/ed48128a86ab6cc04537207640f3e5a8/150/150/AvatarHeadshot/Png"
             },
-            "1134911": {
+            {
+                id: "1134911",
                 name: "Rukiryo",
-                displayName: "Rukiryo",
+                username: "Rukiryo",
                 description: "Game Developer",
                 avatarUrl: "https://tr.rbxcdn.com/9e7d0c3a4f81d4fa6864c5e755f1b150/150/150/AvatarHeadshot/Png"
             },
-            "3101665": {
+            {
+                id: "3101665",
                 name: "KreekCraft",
-                displayName: "KreekCraft",
+                username: "KreekCraft",
                 description: "Popular Content Creator",
                 avatarUrl: "https://tr.rbxcdn.com/0f0d1c30bb8c14136ab2a61baed35473/150/150/AvatarHeadshot/Png"
             },
-            "158415": {
+            {
+                id: "158415",
                 name: "Sorcus",
-                displayName: "Sorcus",
+                username: "Sorcus",
                 description: "Game Developer",
                 avatarUrl: "https://tr.rbxcdn.com/1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a/150/150/AvatarHeadshot/Png"
+            }
+        ];
+        
+        // Demo users for testing (no real OAuth required)
+        const DEMO_USERS = {
+            "demo1": {
+                id: "12345678",
+                username: "RobloxVoter1",
+                displayName: "Test Voter 1",
+                avatarUrl: "https://tr.rbxcdn.com/bcdee8ac9a5a31a4759b448da7c9ff7e/150/150/AvatarHeadshot/Png"
+            },
+            "demo2": {
+                id: "87654321",
+                username: "RobloxVoter2",
+                displayName: "Test Voter 2",
+                avatarUrl: "https://tr.rbxcdn.com/ed48128a86ab6cc04537207640f3e5a8/150/150/AvatarHeadshot/Png"
+            },
+            "demo3": {
+                id: "55555555",
+                username: "RobloxVoter3",
+                displayName: "Test Voter 3",
+                avatarUrl: "https://tr.rbxcdn.com/9e7d0c3a4f81d4fa6864c5e755f1b150/150/150/AvatarHeadshot/Png"
             }
         };
     </script>
 
     <script>
         // ============================================
-        // Voting System with CORS Workaround
+        // Voting System with OAuth Verification
         // ============================================
         
         class VotingSystem {
             constructor() {
                 this.candidates = [];
-                this.hasVoted = localStorage.getItem('hasVoted') === 'true';
-                this.votedFor = localStorage.getItem('votedFor') || null;
+                this.currentUser = null;
+                this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
                 this.init();
             }
             
-            async init() {
-                try {
-                    // Load candidate data
-                    await this.loadCandidates();
-                    
-                    // Load saved votes
-                    this.loadVotes();
-                    
-                    // Render the UI
-                    this.renderCandidates();
-                    this.renderResults();
-                    
-                    // If user has already voted, show which candidate
-                    if (this.hasVoted && this.votedFor) {
-                        const candidate = this.candidates.find(c => c.id === this.votedFor);
-                        if (candidate) {
-                            setTimeout(() => {
-                                this.showNotification(`You voted for ${candidate.name}`);
-                            }, 1000);
-                        }
+            init() {
+                // Set up event listeners
+                document.getElementById('robloxLoginBtn').addEventListener('click', () => this.initiateOAuthFlow());
+                document.getElementById('logoutBtn').addEventListener('click', () => this.logout());
+                
+                // Check if user is already logged in
+                if (this.isLoggedIn) {
+                    const savedUser = localStorage.getItem('currentUser');
+                    if (savedUser) {
+                        this.currentUser = JSON.parse(savedUser);
+                        this.showVotingScreen();
                     }
-                } catch (error) {
-                    console.error('Error initializing voting system:', error);
-                    this.showNotification('Error loading candidates. Please refresh the page.');
                 }
+                
+                // Load candidates from configuration
+                this.loadCandidatesFromConfig();
             }
             
-            async loadCandidates() {
-                this.candidates = [];
+            loadCandidatesFromConfig() {
+                this.candidates = CANDIDATES_CONFIG.map(candidate => {
+                    return {
+                        ...candidate,
+                        votes: parseInt(localStorage.getItem(`votes_${candidate.id}`)) || 0,
+                        userVoted: false
+                    };
+                });
                 
-                // If using fallback data, skip API calls
-                if (USE_FALLBACK_DATA) {
-                    this.loadCandidatesFromFallback();
+                this.renderResults();
+            }
+            
+            // Real Roblox OAuth Flow
+            initiateOAuthFlow() {
+                // Check if configuration is set
+                if (ROBLOX_CONFIG.clientId === "YOUR_CLIENT_ID_HERE" || ROBLOX_CONFIG.clientSecret === "YOUR_CLIENT_SECRET_HERE") {
+                    this.showError("Please configure the Roblox OAuth credentials. For now, use Demo Mode to test.");
                     return;
                 }
                 
-                // Load each candidate using proxy
-                for (const id of CANDIDATE_IDS) {
-                    try {
-                        const candidate = await this.fetchRobloxUserWithProxy(id);
-                        if (candidate) {
-                            this.candidates.push(candidate);
-                        }
-                    } catch (error) {
-                        console.error(`Error loading candidate ${id}:`, error);
-                        // Try to load from fallback if API fails
-                        this.loadCandidateFromFallback(id);
-                    }
-                }
-            }
-            
-            loadCandidatesFromFallback() {
-                for (const id of CANDIDATE_IDS) {
-                    this.loadCandidateFromFallback(id);
-                }
-            }
-            
-            loadCandidateFromFallback(id) {
-                const fallback = FALLBACK_CANDIDATES[id];
-                if (fallback) {
-                    const candidate = {
-                        id: id,
-                        name: CUSTOM_NAMES[id] || fallback.name,
-                        username: fallback.name,
-                        description: CANDIDATE_DESCRIPTIONS[id] || fallback.description || 'Candidate',
-                        votes: parseInt(localStorage.getItem(`votes_${id}`)) || 0,
-                        avatarUrl: fallback.avatarUrl,
-                        displayName: CUSTOM_NAMES[id] || fallback.displayName || fallback.name
-                    };
-                    
-                    // Check if current user voted for this candidate
-                    if (this.hasVoted && this.votedFor === id) {
-                        candidate.userVoted = true;
-                    } else {
-                        candidate.userVoted = false;
-                    }
-                    
-                    this.candidates.push(candidate);
-                }
-            }
-            
-            async fetchRobloxUserWithProxy(robloxId) {
-                // Choose proxy method
-                let apiUrl;
+                // Generate state parameter for security
+                const state = this.generateRandomString(16);
+                localStorage.setItem('oauth_state', state);
                 
-                if (BACKEND_PROXY_URL) {
-                    // Use your own backend proxy
-                    apiUrl = `${BACKEND_PROXY_URL}?userId=${robloxId}`;
-                } else if (USE_PUBLIC_PROXY) {
-                    // Use public CORS proxy (NOT RECOMMENDED for production)
-                    const encodedUrl = encodeURIComponent(`https://users.roblox.com/v1/users/${robloxId}`);
-                    apiUrl = `https://api.allorigins.win/get?url=${encodedUrl}`;
-                } else {
-                    // No proxy configured, use fallback
-                    throw new Error('No proxy configured');
-                }
+                // Build authorization URL for Open Cloud OAuth
+                const authUrl = new URL("https://apis.roblox.com/oauth/v1/authorize");
+                authUrl.searchParams.append('client_id', ROBLOX_CONFIG.clientId);
+                authUrl.searchParams.append('redirect_uri', ROBLOX_CONFIG.redirectUri);
+                authUrl.searchParams.append('response_type', 'code');
+                authUrl.searchParams.append('scope', ROBLOX_CONFIG.scopes.join(' '));
+                authUrl.searchParams.append('state', state);
                 
-                try {
-                    const response = await fetch(apiUrl);
+                // Redirect to Roblox OAuth
+                window.location.href = authUrl.toString();
+            }
+            
+            // Demo login for testing (no real OAuth required)
+            demoLogin(userKey) {
+                const demoUser = DEMO_USERS[userKey];
+                if (!demoUser) return;
+                
+                this.currentUser = {
+                    id: demoUser.id,
+                    username: demoUser.username,
+                    displayName: demoUser.displayName,
+                    avatarUrl: demoUser.avatarUrl,
+                    isDemo: true
+                };
+                
+                // Save login state
+                this.isLoggedIn = true;
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+                localStorage.setItem('isDemoUser', 'true');
+                
+                // Show voting screen
+                this.showVotingScreen();
+                
+                // Update user info display
+                document.getElementById('loggedInUsername').textContent = this.currentUser.username;
+                document.getElementById('loggedInUserId').textContent = `ID: ${this.currentUser.id} (Demo)`;
+                document.getElementById('loggedInAvatar').src = this.currentUser.avatarUrl;
+                
+                // Load user-specific vote data
+                this.loadUserVotes();
+                
+                // Show notification
+                this.showNotification(`Welcome, ${this.currentUser.username}! (Demo Mode)`);
+            }
+            
+            logout() {
+                if (confirm('Are you sure you want to logout?')) {
+                    this.currentUser = null;
+                    this.isLoggedIn = false;
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('currentUser');
+                    localStorage.removeItem('isDemoUser');
                     
-                    if (!response.ok) {
-                        throw new Error(`Proxy request failed: ${response.status}`);
-                    }
+                    // Show login screen
+                    document.getElementById('loginScreen').style.display = 'block';
+                    document.getElementById('votingScreen').style.display = 'none';
                     
-                    let userData;
-                    
-                    if (USE_PUBLIC_PROXY) {
-                        // Parse response from public proxy
-                        const proxyData = await response.json();
-                        userData = JSON.parse(proxyData.contents);
-                    } else {
-                        // Parse response from your own proxy
-                        userData = await response.json();
-                    }
-                    
-                    if (!userData || userData.errors) {
-                        throw new Error('User not found');
-                    }
-                    
-                    // Get avatar thumbnail (this API usually works with CORS)
-                    let avatarImageUrl;
-                    try {
-                        const avatarUrl = `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${robloxId}&size=420x420&format=Png&isCircular=false`;
-                        const avatarResponse = await fetch(avatarUrl);
-                        
-                        if (avatarResponse.ok) {
-                            const avatarData = await avatarResponse.json();
-                            if (avatarData.data && avatarData.data[0]) {
-                                avatarImageUrl = avatarData.data[0].imageUrl;
-                            }
-                        }
-                    } catch (avatarError) {
-                        console.log('Using fallback avatar URL');
-                    }
-                    
-                    // Create candidate object
-                    const candidate = {
-                        id: robloxId,
-                        name: CUSTOM_NAMES[robloxId] || userData.name,
-                        username: userData.name,
-                        description: CANDIDATE_DESCRIPTIONS[robloxId] || 'Candidate',
-                        votes: parseInt(localStorage.getItem(`votes_${robloxId}`)) || 0,
-                        avatarUrl: avatarImageUrl || `https://www.roblox.com/headshot-thumbnail/image?userId=${robloxId}&width=420&height=420&format=png`,
-                        displayName: userData.displayName || userData.name
-                    };
-                    
-                    // Check if current user voted for this candidate
-                    if (this.hasVoted && this.votedFor === robloxId) {
-                        candidate.userVoted = true;
-                    } else {
+                    // Clear any user-specific vote highlights
+                    this.candidates.forEach(candidate => {
                         candidate.userVoted = false;
-                    }
+                    });
+                    this.renderCandidates();
                     
-                    return candidate;
-                    
-                } catch (error) {
-                    console.error(`Error fetching Roblox user ${robloxId} via proxy:`, error);
-                    throw error;
+                    this.showNotification('Successfully logged out.');
                 }
             }
             
-            loadVotes() {
-                // Load votes for each candidate from localStorage
+            loadUserVotes() {
+                if (!this.currentUser) return;
+                
+                // Load which candidates this user has voted for
+                const userVotes = JSON.parse(localStorage.getItem(`user_votes_${this.currentUser.id}`)) || [];
+                
+                // Update candidates with user's vote status
                 this.candidates.forEach(candidate => {
-                    const savedVotes = localStorage.getItem(`votes_${candidate.id}`);
-                    if (savedVotes) {
-                        candidate.votes = parseInt(savedVotes);
-                    }
+                    candidate.userVoted = userVotes.includes(candidate.id);
                 });
-            }
-            
-            saveVotes() {
-                // Save votes for each candidate to localStorage
-                this.candidates.forEach(candidate => {
-                    localStorage.setItem(`votes_${candidate.id}`, candidate.votes.toString());
-                });
+                
+                this.renderCandidates();
             }
             
             vote(candidateId) {
-                // Check if already voted
-                if (this.hasVoted) {
-                    this.showNotification("You can only vote for one candidate!");
+                if (!this.currentUser) {
+                    this.showNotification("Please login to vote.");
+                    return;
+                }
+
+                // Check if user already voted for any candidate
+                const userVotes = JSON.parse(localStorage.getItem(`user_votes_${this.currentUser.id}`)) || [];
+                if (userVotes.length > 0) {
+                    this.showNotification("You have already voted! You can only vote for one candidate.");
                     return;
                 }
 
@@ -741,21 +904,34 @@
                 candidate.votes++;
                 candidate.userVoted = true;
                 
-                // Mark user as voted
-                this.hasVoted = true;
-                this.votedFor = candidateId;
+                // Save candidate votes
+                localStorage.setItem(`votes_${candidateId}`, candidate.votes.toString());
                 
-                // Save to localStorage
-                this.saveVotes();
-                localStorage.setItem('hasVoted', 'true');
-                localStorage.setItem('votedFor', candidateId);
-
+                // Save user's vote
+                userVotes.push(candidateId);
+                localStorage.setItem(`user_votes_${this.currentUser.id}`, JSON.stringify(userVotes));
+                
                 // Show notification
-                this.showNotification(`✅ You voted for ${candidate.name}! Your vote has been recorded.`);
+                this.showNotification(`✅ You voted for ${candidate.name}!`);
 
                 // Update UI
                 this.renderCandidates();
                 this.renderResults();
+            }
+            
+            showVotingScreen() {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('votingScreen').style.display = 'block';
+                
+                // Update user info display
+                if (this.currentUser) {
+                    document.getElementById('loggedInUsername').textContent = this.currentUser.username;
+                    document.getElementById('loggedInUserId').textContent = `ID: ${this.currentUser.id}`;
+                    document.getElementById('loggedInAvatar').src = this.currentUser.avatarUrl;
+                    
+                    // Load user's vote status
+                    this.loadUserVotes();
+                }
             }
             
             showNotification(message) {
@@ -771,6 +947,19 @@
                 }, 5000);
             }
             
+            showError(message) {
+                const errorDiv = document.getElementById('errorMessage');
+                const errorText = document.getElementById('errorMessageText');
+                
+                errorText.textContent = message;
+                errorDiv.style.display = 'block';
+                
+                // Auto-hide after 10 seconds
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 10000);
+            }
+            
             renderCandidates() {
                 const container = document.getElementById('candidate-list');
                 
@@ -780,7 +969,8 @@
                 }
 
                 container.innerHTML = this.candidates.map(candidate => {
-                    const hasVotedForThis = this.hasVoted && this.votedFor === candidate.id;
+                    const hasVotedForThis = candidate.userVoted;
+                    const canVote = this.currentUser && !this.hasUserVoted();
                     
                     return `
                         <div class="candidate-card ${hasVotedForThis ? 'voted' : ''}">
@@ -788,7 +978,7 @@
                             
                             <div class="avatar-container">
                                 <img src="${candidate.avatarUrl}" alt="${candidate.name}" class="avatar-img"
-                                     onerror="this.onerror=null; this.src='https://via.placeholder.com/150/7289da/ffffff?text=${candidate.name.charAt(0)}'">
+                                     onerror="this.onerror=null; this.src='https://via.placeholder.com/150/00a2ff/ffffff?text=${candidate.name.charAt(0)}'">
                             </div>
                             
                             <h3 class="candidate-name">${candidate.name}</h3>
@@ -800,12 +990,20 @@
                             
                             <button class="vote-btn ${hasVotedForThis ? 'voted' : ''}" 
                                     onclick="votingSystem.vote('${candidate.id}')"
-                                    ${this.hasVoted ? 'disabled' : ''}>
-                                ${hasVotedForThis ? '<i class="fas fa-check"></i> Voted' : '<i class="fas fa-vote-yea"></i> Vote Now'}
+                                    ${!this.currentUser || this.hasUserVoted() ? 'disabled' : ''}>
+                                ${hasVotedForThis ? '<i class="fas fa-check"></i> Voted' : 
+                                  !this.currentUser ? 'Login to Vote' : 
+                                  this.hasUserVoted() ? 'Already Voted' : '<i class="fas fa-vote-yea"></i> Vote Now'}
                             </button>
                         </div>
                     `;
                 }).join('');
+            }
+            
+            hasUserVoted() {
+                if (!this.currentUser) return false;
+                const userVotes = JSON.parse(localStorage.getItem(`user_votes_${this.currentUser.id}`)) || [];
+                return userVotes.length > 0;
             }
             
             renderResults() {
@@ -841,56 +1039,25 @@
                 }
             }
             
-            // Admin function to reset all votes (can be called from browser console)
-            resetVotes() {
-                if (confirm('Are you sure you want to reset ALL votes? This will reset everyone\'s votes.')) {
-                    this.candidates.forEach(candidate => {
-                        candidate.votes = 0;
-                        localStorage.removeItem(`votes_${candidate.id}`);
-                    });
-                    
-                    // Clear user's vote status
-                    this.hasVoted = false;
-                    this.votedFor = null;
-                    localStorage.removeItem('hasVoted');
-                    localStorage.removeItem('votedFor');
-                    
-                    this.renderCandidates();
-                    this.renderResults();
-                    this.showNotification('All votes have been reset!');
+            generateRandomString(length) {
+                const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let result = '';
+                for (let i = 0; i < length; i++) {
+                    result += charset.charAt(Math.floor(Math.random() * charset.length));
                 }
-            }
-            
-            // Admin function to clear user's personal vote
-            clearMyVote() {
-                if (confirm('Are you sure you want to clear your vote? You will be able to vote again.')) {
-                    this.hasVoted = false;
-                    this.votedFor = null;
-                    localStorage.removeItem('hasVoted');
-                    localStorage.removeItem('votedFor');
-                    
-                    // Clear vote status from candidates
-                    this.candidates.forEach(candidate => {
-                        candidate.userVoted = false;
-                    });
-                    
-                    this.renderCandidates();
-                    this.showNotification('Your vote has been cleared. You can vote again.');
-                }
+                return result;
             }
         }
-
+        
         // Initialize the voting system
         let votingSystem;
-
+        
         document.addEventListener('DOMContentLoaded', () => {
             votingSystem = new VotingSystem();
         });
-
-        // Make functions available globally
+        
+        // Make system accessible globally
         window.votingSystem = votingSystem;
-        window.resetVotes = () => votingSystem.resetVotes();
-        window.clearMyVote = () => votingSystem.clearMyVote();
     </script>
 </body>
 </html>
